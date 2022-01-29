@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Customer</title>
+        <style>
+            .div1{
+                background-color: red;
+                color: white;
+                padding: 2px;
+                font-family: Arial;
+                
+            }
+            .btn {
+                background-color: red;
+                color: white;
+                padding: 6px 50px;
+                cursor: pointer;
+              }
+            input[type=text]:disabled {
+                background: #dddddd;
+              }
+        </style>
+        
+    </head>
+    <body bgcolor="#36454F">
+        <center>
+        <form>
+            <span class="div1">Search Stock</span><br>
+            <select name="Search" id="search">
+                <option selected>Choose...</option>
+                <option value="DBS">DBS....</option>
+                <option value="SBI">SBI....</option>
+                <option value="KOTAK">KOTAK....</option>
+                <option value="HDFC">HDFC.....</option>
+            </select><br><br><br>
+        
+            
+            <script type="text/javascript">
+                function EnableDisableTextBox(ddlModels) {
+                    var selectedValue = ddlModels.options[ddlModels.selectedIndex].value;
+                    var txtOther = document.getElementById("txtOther");
+                    txtOther.disabled = selectedValue == 1 ? false : true;
+                    if (!txtOther.disabled) {
+                        txtOther.focus();
+                    }
+                }
+            </script>
+            <span class="div1">OrdrerType</span><br>
+            <select id = "ddlModels" onchange = "EnableDisableTextBox(this)">
+                <option selected>Choose...</option>
+                <option value = "1">Limit</option>
+                <option value = "2">Market</option>
+                
+            </select><br><br><br>
+            
+            <span class="div1">Price</span><br>
+            <input type="text" id="txtOther" disabled="disabled" /><br><br><br>
+            <span class="div1">Quantity</span><br>
+            <input type='text' name='quantity'><br><br><br>
+            <button class="btn">Place Order</button>
+      </div>
+              
+        </form>
+    </center>
+    </body> 
+</html>
